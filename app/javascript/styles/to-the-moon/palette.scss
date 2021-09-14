@@ -44,12 +44,12 @@
  */
 
 :root {
---bg: rgba(238,225,191, 0.8);
+--bg: rgba(238,225,191, 0.6);
 --text: rgb(17,36,53);
 --textBold: rgb(17,36,53);
 --textMuted: rgb(37,59,82);
 
---bgPage: rgb(156,165,144);
+--bgPage: rgb(156,165,144, 0.8);
 --textPage: var(--text);
 --textPageBold: var(--textBold);
 --textPageMuted: var(--textMuted);
