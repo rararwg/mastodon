@@ -1,9 +1,17 @@
 /*---------
 MISC TWEAKS
+* To the moon https://freebirdgames.com/de/to_the_moon/
 ---------*/
 
 /* replace elephant friend with a pair */
-.drawer__inner__mastodon {background: url("../images/pair.png") no-repeat bottom center / contain !important;}
+.drawer__inner__mastodon {
+    background: url("../images/pair.png")
+		no-repeat bottom center / contain !important;
+    @media screen and (min-height: 630px) {
+	display: block;
+    }
+}
+
 .drawer__inner__mastodon > img {display: none;}
 
 /* to the moon */

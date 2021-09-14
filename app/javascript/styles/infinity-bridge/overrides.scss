@@ -1,9 +1,19 @@
 /*---------
 MISC TWEAKS
+ * infinity bridge
+ * images from artstation.com/natureintheory
+ * !!! Please don't use those images on your website,
+ * !!! I'm still asking for the author's permission
 ---------*/
 
 /* replace elephant friend with Klein bottle */
-.drawer__inner__mastodon {background: url('../images/olena-shmahalo-spots-layout.png') no-repeat bottom center / contain !important;}
+.drawer__inner__mastodon {
+    background: url('../images/olena-shmahalo-spots-layout.png')
+		no-repeat bottom center / contain !important;
+    @media screen and (min-height: 630px) {
+	display: block;
+    }
+}
 .drawer__inner__mastodon > img {display: none;}
 
 /* infinite bridge */
