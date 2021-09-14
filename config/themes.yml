@@ -1,3 +1,5 @@
 default: styles/application.scss
 contrast: styles/contrast.scss
 mastodon-light: styles/mastodon-light.scss
+to-the-moon: styles/to-the-moon.scss
+infinity-bridge: styles/infinity-bridge.scss
