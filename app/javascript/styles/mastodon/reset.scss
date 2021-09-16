@@ -4,11 +4,11 @@
 */
 
 html, body, div, span, applet, object, iframe,
-p, pre,
+p, code,
 a, abbr, acronym, address, big,
 dfn, img, ins, kbd, s, samp,
 small, sub, sup, tt, var,
-u, center,
+u, ul, center,
 dl, dt, dd,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -23,6 +23,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -39,7 +40,7 @@ ol {
 }
 
 ul {
-  list-style: inside;
+  list-style: none;
 }
 
 blockquote, q {
