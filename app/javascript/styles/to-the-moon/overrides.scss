@@ -22,6 +22,14 @@ MISC TWEAKS
     background-position: center center;           
 }
 
+body, .landing-page, .public-layout {
+  background: url('../images/ToTheMoon.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
 /* vignette on headers and dropdowns */
 .column-header {box-shadow: inset 0 0 8px 8px rgba(0,0,0,0.1);}
 .column-header__button {background: transparent !important;}

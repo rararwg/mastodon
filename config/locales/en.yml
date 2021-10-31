@@ -1604,6 +1604,8 @@ en:
     mastodon-light: Mastodon (Light)
     to-the-moon: To the Moon
     infinity-bridge: Infinity Bridge
+    stardew-valley: Stardew Valley
+    cafe: Café
   time:
     formats:
       default: "%b %d, %Y, %H:%M"

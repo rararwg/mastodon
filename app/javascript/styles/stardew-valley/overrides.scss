@@ -29,6 +29,11 @@ MISC TWEAKS
     100% {background-position: 1014px 0%;}
 }
 
+@-webkit-keyframes slide {
+    0%   {background-position: 0px 0%;}
+    100% {background-position: 1014px 0%;}
+}
+
 body, .landing-page, .public-layout {
     background: url('../images/parallax3b.png'),
     url('../images/parallax3a.png'),

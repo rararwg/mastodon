@@ -1,37 +1,30 @@
 /*---------
 MISC TWEAKS
- * infinity bridge
- * images from artstation.com/natureintheory
- * !!! Please don't use those images on your website,
- * !!! I'm still asking for the author's permission
+* To the moon https://freebirdgames.com/de/to_the_moon/
 ---------*/
 
-/* replace elephant friend with Klein bottle */
+/* replace elephant friend with a pair */
 .drawer__inner__mastodon {
-    background: url('../images/olena-shmahalo-spots-layout.png')
+    background: url("../images/gans.png")
 		no-repeat bottom center / contain !important;
     @media screen and (min-height: 630px) {
+	background-size: 60% !important;
 	display: block;
     }
 }
+
 .drawer__inner__mastodon > img {display: none;}
 
-/* infinite bridge */
+/* to the moon */
 .columns-area {
-    background: url('../images/infinity_bridge.jpg');
+    background: url("../images/cafe_inside.jpeg");
     background-size:     cover;
     background-repeat:   no-repeat;
     background-position: center center;           
 }
 
 body, .landing-page, .public-layout {
- 
-    background-size:     cover;
-    background-position: center center;           
-}
-
-body, .landing-page, .public-layout {
-  background: url('../images/infinity_bridge.jpg') no-repeat;
+  background: url('../images/cafe_inside.jpeg') no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -46,7 +39,7 @@ body, .landing-page, .public-layout {
 /* mobile */
 @media (max-width: 630px) {    
     .columns-area {
-	background: url("../images/infinity_bridge_mobile.jpg");
+	background: url("../images/cafe_inside_mobile.jpg");
 	background-size:     cover;
 	background-attachment: fixed;
 	background-position: center center;           

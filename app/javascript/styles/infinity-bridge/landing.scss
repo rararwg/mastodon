@@ -1,0 +1,101 @@
+$transparent-light:rgba(29,32,41,0.6);
+$accent:rgb(244, 153, 188);
+
+body,
+.landing-page,
+.public-layout {
+    background-image: url("../images/infinity_bridge.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* mobile */
+@media (max-width: 630px) {
+    body,
+    .landing-page,
+    .public-layout {
+	background-image: url("../images/infinity_bridge_mobile.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+    }
+}
+
+
+.public-layout {
+
+  .header,
+  .table-of-contents,
+  .landing-page__call-to-action,
+  .nothing-here,
+  .contact-widget,
+  .box-widget,
+  .hero-widget__text,
+  .trends-widget,
+  .endorsements-widget,
+  .placeholder-widget,
+  .public-account-header,
+  .public-account-bio,
+  .footer {
+      background: rgba(29,32,41,0.6);
+  }
+
+  .contact-widget,
+  .trends-widget,
+  .public-account-header,
+  .footer {
+    border-radius: 4px;
+  }
+
+  .footer {
+    padding: 25px 40px;
+    margin: 10px 0;
+  }
+}
+
+.column>.scrollable {
+  background-color: rgba(29,32,41,0.6);
+}
+
+.activity-stream .entry {
+  background-color: $transparent-light;
+}
+
+// Change the background colors of statuses
+.focusable:focus {
+  background: $transparent-light;
+}
+
+.detailed-status,
+.detailed-status__action-bar {
+  background: $transparent-light;
+}
+
+// Change the background colors of status__content__spoiler-link
+.reply-indicator__content .status__content__spoiler-link,
+.status__content .status__content__spoiler-link {
+  background: $transparent-light;
+
+  &:hover {
+    background: lighten($transparent-light, 4%);
+  }
+}
+
+// Change the colors of button
+
+.simple_form .block-button,
+.simple_form .button,
+.simple_form button {
+    background: $accent;
+}
+
+.button {
+    background: $accent;
+
+    &.button-alternative-2 {
+	background: $accent;
+    }
+}
