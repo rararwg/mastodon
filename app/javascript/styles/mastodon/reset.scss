@@ -24,6 +24,26 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
+math {
+    font-family: symbol;
+    font-size:larger;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: baseline;
+    line-height: 1.0;
+}
+
+math[display="block"] {
+    display: block;
+    text-align: center;
+    page-break-inside: avoid;
+    margin-bottom: 1em;
+}
+
+math > * {
+    vertical-align: baseline;
+}
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
