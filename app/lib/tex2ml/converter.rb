@@ -51,26 +51,34 @@ module Tex2ml
         mo.text = "&#x#{symbol};"
       elsif element.start_with?('\\textrm')
         el = Tex2ml::Element.new(parent, 'mtext')
-        matches = element.match(/\\textrm{([^}]*)}/)
-        el.text = matches[1]
+        matches = element.match(/\\textrm\s*{([^}]*)}/)
+        match = matches ? matches[1].gsub(/\s*/, '') : ''
+        match = "&#x#{Tex2ml::Symbol.get(match)};" if Tex2ml::Symbol.get(match)
+        el.text = match
       elsif element.start_with?('\\vec')
         el = Tex2ml::Element.new(parent, 'mover', {accent: 'true'})
         mi = Tex2ml::Element.new(el, 'mi')
-        matches = element.match(/\\vec{([^}]*)}/)
-        mi.text = matches[1].start_with?('\\') ? "&#x#{Tex2ml::Symbol.get(matches[1])};" : matches[1]
+        matches = element.match(/\\vec\s*{([^}]*)}/)
+        match = matches ? matches[1].gsub(/\s*/, '') : ''
+        match = "&#x#{Tex2ml::Symbol.get(match)};" if Tex2ml::Symbol.get(match)
+        mi.text = match
         mo = Tex2ml::Element.new(el, 'mo', {stretchy: 'false'})
         mo.text = "&#x#{Tex2ml::Symbol.get('\\vec')};"
       elsif element.start_with?('\\hat')
         el = Tex2ml::Element.new(parent, 'mover', {accent: 'true'})
         mi = Tex2ml::Element.new(el, 'mi')
-        matches = element.match(/\\hat{([^}]*)}/)
-        mi.text = matches[1].start_with?('\\') ? "&#x#{Tex2ml::Symbol.get(matches[1])};" : matches[1]
+        matches = element.match(/\\hat\s*{([^}]*)}/)
+        match = matches ? matches[1].gsub(/\s*/, '') : ''
+        match = "&#x#{Tex2ml::Symbol.get(match)};" if Tex2ml::Symbol.get(match)
+        mi.text = match
         mo = Tex2ml::Element.new(el, 'mo', {stretchy: 'false'})
         mo.text = "&#x#{Tex2ml::Symbol.get('\\hat')};"
       elsif element.start_with?('\\mbox')
         el = Tex2ml::Element.new(parent, 'mtext')
-        matches = element.match(/\\mbox{([^}]*)}/)
-        el.text = matches[1]
+        matches = element.match(/\\mbox\s*{([^}]*)}/)
+        match = matches ? matches[1].gsub(/\s*/, '') : ''
+        match = "&#x#{Tex2ml::Symbol.get(match)};" if Tex2ml::Symbol.get(match)
+        el.text = match
       elsif element.start_with?('\\')
         tag_name = is_math_mode ? 'mo' : 'mi'
         el = Tex2ml::Element.new(parent, tag_name)

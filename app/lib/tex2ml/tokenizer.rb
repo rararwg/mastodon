@@ -15,7 +15,7 @@ module Tex2ml
     def fetch_token
       skip(/\s+/)
 
-      token = if scan(/\\mathbb\{[^}]+}/)
+      token = if scan(/\\mathbb\s*{[^}]+}/)
                 if Tex2ml::Symbol.get(matched)
                   "#{Tex2ml::Symbol.get(matched)}"
                 else
@@ -27,15 +27,15 @@ module Tex2ml
                 "#{symbol}" if symbol
               elsif scan(/\\\\\[\d+mm\]/)
                 '\\\\' # matched
-              elsif scan(/\\mbox{[^\}]+}/)
+              elsif scan(/\\mbox\s*{[^\}]+}/)
                 matched
               elsif scan(/\\Delta/)
                 matched
-              elsif scan(/\\vec{[^\}]+}/)
+              elsif scan(/\\vec\s*{[^\}]+}/)
                 matched
-              elsif scan(/\\hat{[^\}]+}/)
+              elsif scan(/\\hat\s*{[^\}]+}/)
                 matched
-              elsif scan(/\\textrm{[^\}]+}/)
+              elsif scan(/\\textrm\s*{[^\}]+}/)
                 matched
               elsif scan(/{\\rm [^}]+}/)
                 matches = matched.match(/{\\rm ([^}]+)}/)

@@ -4013,11 +4013,11 @@ module Tex2ml
   end
 
   def self.parse_inline(string)
-    return "<small hidden>" + string.gsub(/\^/,'\\^') + "</small> <math>" + parse(string) + "</math>"
+    return "<small>$" + string.gsub(/\^/,'\\^') + "$</small> <math>" + parse(string) + "</math>"
   end
 
   def self.parse_block(string)
-    return "<math display=\"block\">" + parse(string) + "</math><p><small hidden>\\begin{equation}</p><p>" + string.gsub(/\^/,'\\^') + "</p></p>\\end{equation}</small></p>"
+    return "<small>\\begin{equation} " + string.gsub(/\^/,'\\^') + " \\end{equation}</small> <math display=\"block\">" + parse(string) + "</math>"
   end
   
   def self.render(string)
