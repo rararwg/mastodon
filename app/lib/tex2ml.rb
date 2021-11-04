@@ -4021,16 +4021,20 @@ module Tex2ml
   end
   
   def self.render(string)
-    # escape $ sign
-    string.gsub!(/\\\$/, '&dollar;')
-    # parse TeX block
-    string.gsub!(/\$\$[^\$\$]+\$\$/) do |m|
-      parse_block(m[2..-3])
+    begin
+      # escape $ sign
+      string.gsub!(/\\\$/, '&dollar;')
+      # parse TeX block
+      string.gsub!(/\$\$[^\$]+\$\$/) do |m|
+        parse_block(m[2..-3])
+      end
+      # parse inline TeX
+      string.gsub!(/\$[^\$]+\$/) do |m|
+        parse_inline(m[1..-2])
+      end
+      string
+    rescue
+      string
     end
-    # parse inline TeX
-    string.gsub!(/\$[^\$]+\$/) do |m|
-      parse_inline(m[1..-2])
-    end
-    string
   end
 end
