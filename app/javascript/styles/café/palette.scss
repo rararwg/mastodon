@@ -45,17 +45,19 @@
 
 :root {
     --bg: rgba(40,18,14,0.85);
-    --text: rgb(208,198,179);
-    --textBold: rgb(255,235,192);
-    --textMuted: rgb(222,145,65);
+    // -bg: #28120e;
+    --text: #d0c6b3;
+    --textBold: #ffebc0;
+    --textMuted: #de9241;
 
     --bgPage: rgba(122,65,35,0.8);
+    // --bgPage: #7a4123;
     --textPage: var(--text);
     --textPageBold: var(--textBold);
     --textPageMuted: var(--textMuted);
 
-    --bgHead: rgb(203,100,91);
+    --bgHead: #cb645b;
     --textHead: var(--textBold);
-    --accent: rgb(32,168,144);
+    --accent: #20a88f;
     --accentText: var(--textBold);
 }

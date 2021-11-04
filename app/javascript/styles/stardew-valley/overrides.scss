@@ -6,7 +6,7 @@ MISC TWEAKS
  * !!! I'm still asking for the author's permission
 ---------*/
 
-/* replace elephant friend with Klein bottle */
+/* replace elephant friend with a flying bird */
 .drawer__inner__mastodon {
     background: url(https://stardewvalley.net/wp-content/themes/stardewvalley/images/stardew_bird.gif)
 		   no-repeat !important;
@@ -25,14 +25,23 @@ MISC TWEAKS
 .drawer__inner__mastodon > img {display: none;}
 
 @keyframes slide {
-    0%   {background-position: 0px 0%;}
+    0%   {background-position: -54px 0%;}
     100% {background-position: 1014px 0%;}
 }
 
-@-webkit-keyframes slide {
-    0%   {background-position: 0px 0%;}
-    100% {background-position: 1014px 0%;}
-}
+// @-webkit-keyframes slide {
+//     0%   {background-position: 0px 0%;}
+//     100% {background-position: 1014px 0%;}
+// }
+
+// @keyframes slide {
+//     0% {
+// 	left:calc(0% - 54px) ;
+//     }
+//     100% { 
+// 	left: calc(100% - 100px); 
+//     }
+// }
 
 body, .landing-page, .public-layout {
     background: url('../images/parallax3b.png'),

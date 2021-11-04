@@ -32,11 +32,15 @@ $small-breakpoint: 960px;
     &:active {
       text-decoration: none;
     }
-  }
+  }  
 
   p,
   li {
     color: $darker-text-color;
+  }
+
+  img {
+      padding-left: 1%;
   }
 
   p {
