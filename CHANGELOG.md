@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file.
 - Remove IP matching from e-mail domain blocks ([Gargron](https://github.com/mastodon/mastodon/pull/18190))
   - The IPs of the blocked e-mail domain or its MX records are no longer checked
   - Previously it was too easy to block e-mail providers by mistake
-  
+
 ## Fixed
 
 - Fix compatibility with Friendica's pinned posts ([ClearlyClaire](https://github.com/mastodon/mastodon/pull/18254), [ClearlyClaire](https://github.com/mastodon/mastodon/pull/18260))
