@@ -855,6 +855,16 @@
 
   .status__content__text {
     display: none;
+    ol {
+      list-style: arabic;
+    }
+    ul {
+      list-style: disc !important;
+    }
+    ul, ol {
+      padding-left: 2em !important;
+      margin-bottom: 0.85em !important;
+    }
 
     &.status__content__text--visible {
       display: block;
