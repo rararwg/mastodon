@@ -28,6 +28,11 @@ small {
   font-size: 0%;
 }
 
+smaller {
+    font-size: 75%;
+    opacity: 0.7;
+}
+
 math {
     font-family: symbol;
     font-size:larger;
@@ -71,6 +76,20 @@ blockquote:before, q:before {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
+
+.compose-form__modifiers {
+    a {
+        color: $highlight-text-color;
+	text-decoration: underline;
+
+	&:hover,
+	&:focus,
+	&:active {
+	    text-decoration: none;
+	}
+    }
+}
+
 
 table {
   border-collapse: collapse;
