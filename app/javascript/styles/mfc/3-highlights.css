@@ -58,6 +58,9 @@ accented buttons
         .button:hover,
     .icon-button.overlayed:hover,
     .floating-action-button,
+        .floating-action-button:active,
+        .floating-action-button:hover,
+        .floating-action-button:focus,
     .simple_form button,
         .simple_form button:active,
         .simple_form button:focus,
@@ -135,6 +138,19 @@ accented buttons
     background: var(--accent);
     color: var(--accentText);
 }
+
+.floating-action-button:hover, .button:hover,
+.simple_form button:hover, .button.logo-button:hover{
+    filter: brightness(1.1);
+    transition: all 200ms ease-out;
+}
+
+.floating-action-button:active, .button:active,
+.simple_form button:active, .button.logo-button:active{
+    filter: brightness(0.8);
+    transition: all 200ms ease-out;
+}
+
 
 /*------------
 accented links

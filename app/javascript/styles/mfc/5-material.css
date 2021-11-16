@@ -16,7 +16,7 @@ material design overrides
     border: 0
 }
 .status__wrapper--filtered {border: none}
-.detailed-status__wrapper {margin: 8px;} /*might look weird in older versions pre-2.6?*/
+.detailed-status__wrapper {margin: 15px;} /*might look weird in older versions pre-2.6?*/
 
 /* recolors */
 .column>.scrollable,

@@ -1601,6 +1601,7 @@ de:
     contrast: Mastodon (Hoher Kontrast)
     default: Mastodon (Dunkel)
     mastodon-light: Mastodon (Hell)
+    flora: Flora
   time:
     formats:
       default: "%d.%m.%Y %H:%M"

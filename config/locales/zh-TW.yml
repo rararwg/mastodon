@@ -1572,6 +1572,7 @@ zh-TW:
     contrast: Mastodon（高對比）
     default: Mastodon（深色）
     mastodon-light: Mastodon（亮色主題）
+    flora: 芙蘿拉 (Flora)
   time:
     formats:
       default: "%Y年%-m月%d日 %H:%M"

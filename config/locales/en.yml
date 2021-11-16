@@ -1606,6 +1606,7 @@ en:
     infinity-bridge: Infinity Bridge
     stardew-valley: Stardew Valley
     cafe: Café
+    flora: Flora
   time:
     formats:
       default: "%b %d, %Y, %H:%M"

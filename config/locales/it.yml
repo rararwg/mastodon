@@ -1604,6 +1604,7 @@ it:
     contrast: Mastodon (contrasto elevato)
     default: Mastodon (scuro)
     mastodon-light: Mastodon (chiaro)
+    flora: Flora
   time:
     formats:
       default: "%d %b %Y, %H:%M"
