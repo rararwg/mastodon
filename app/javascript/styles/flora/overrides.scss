@@ -26,8 +26,12 @@ body.app-body.layout-multiple-columns {
     border-radius: 8px 8px 0 0;
 }
 
-.account-authorize__wrapper, .conversation, .follow_requests-unlocked_explanation, .status, .status__content, .search__input {
+.account-authorize__wrapper, .conversation, .follow_requests-unlocked_explanation, .status, .search__input {
     border-radius: 8px;
+}
+
+.status__content__text {
+    margin-left: 0.25em;
 }
 
 .compose-form__buttons-wrapper {

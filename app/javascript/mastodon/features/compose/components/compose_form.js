@@ -255,7 +255,7 @@ class ComposeForm extends ImmutablePureComponent {
         >
           <EmojiPickerDropdown onPickEmoji={this.handleEmojiPick} />
           <div className='compose-form__modifiers'>
-	  <smaller>&nbsp;&nbsp;**<strong>bold</strong>** *<em>italic</em>* ~~<del>strike</del>~~ `<code>inline code</code>` &gt; quote $LaTeX$ <a href="https://rhabarberbarbara.bar/about/more#sec">help</a></smaller>
+	  <smaller>**<strong>bold</strong>** *<em>italic</em>* ~~<del>strike</del>~~ `<code>code</code>` &gt; quote [text](<a href="https://rhabarberbarbara.bar/about/more#sec">link</a>) $LaTeX$</smaller>
             <UploadFormContainer />
             <PollFormContainer />
           </div>
