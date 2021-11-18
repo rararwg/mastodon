@@ -1,0 +1,193 @@
+$bg: #fff;
+$fg: rgb(77, 102, 78);
+$accent: #fff;
+$text: #000;
+
+.drawer__inner__mastodon > img {display: none;}
+
+body, body.lighter .landing-page, .public-layout, .columns-area__panels {
+    background: $bg !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+}
+
+body.app-body.layout-multiple-columns {
+    .columns-area {
+	background: $bg;
+	background-position: center center;
+	background-attachment: fixed;
+    }
+}
+
+/* vignette on headers and dropdowns */
+.column-header { box-shadow: inset 0 0 8px 8px rgba(0,0,0,0.1);}
+
+.navigation-panel, .column-header {
+    border-radius: 8px 8px 0 0;
+}
+
+.account-authorize__wrapper, .conversation, .follow_requests-unlocked_explanation, .status, .search__input {
+    border-radius: 8px;
+}
+
+.status__content__text {
+    margin-left: 0.25em;
+}
+
+.compose-form__buttons-wrapper {
+    border-radius: 0px 0px 4px 4px;
+}
+
+.column-header__button {background: transparent !important;}
+.column-header__collapsible-inner {box-shadow: inset 0 0 10em 10em rgba(0,0,0,0.1);}
+
+.columns-area--mobile .status {
+    padding: 0;
+}
+
+.status {
+    padding: 15px 8px 8px 8px !important;
+}
+
+.status__info {
+    padding: 5px 0px 10px 60px !important;
+}
+
+.tabs-bar__wrapper {
+    padding: 0;
+}
+
+.privacy-dropdown__dropdown, .emoji-mart-scroll,
+.getting-started__footer, .emoji-mart-category-label span,
+.emoji-mart-search {
+    background: var(--bg);
+}
+
+.emoji-mart-bar:first-child {
+    background: var(--bgHead);
+}
+
+.compose-form__uploads-wrapper {
+    padding: 15px;
+}
+
+@media (max-width: 630px) {
+    .columns-area__panels, body {
+	background: $bg;
+	background-size: auto 100%;
+	background-attachment: fixed;
+	background-position: center;
+    }
+}
+
+.status__expand {
+    height: 68px;
+}
+
+.form-container {
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 8px;
+}
+
+code {
+    background-color: darken($bg, 5%);
+}
+
+.notification .status__avatar::before,
+.notification .status__avatar::after {
+  display: none !important;
+}
+
+.status__wrapper .status:first-child .status__avatar::before,
+.status__wrapper .status:first-child .status__avatar::after {
+    content: "";
+    border: 3px solid;
+    box-sizing: border-box;
+    width: 24px;
+    height: 12px;
+    background: repeating-linear-gradient(90deg, #000, #000 2px, #fff 1px, #fff 4px);
+    border-color: #000;
+    position: absolute;
+    z-index: 1;
+}
+
+.status__avatar::before {
+    border-radius: 3px 3px 20px 20px;
+    transform: rotate(-30deg);
+    left: 40px;
+    top: 10px;
+    transform-origin: top left;
+}
+
+.status__avatar::after {
+    border-radius: 3px 3px 20px 20px;
+    transform: rotate(30deg);
+    right: 40px;
+    top: 10px;
+    transform-origin: top right;
+}
+
+.account__avatar-overlay::before,
+.account__avatar-overlay::after {
+    content: "";
+    border: 2px solid;
+    box-sizing: border-box;
+    width: 18px;
+    height: 9px;
+    background: repeating-linear-gradient(90deg, #000, #000 1px, #fff 1px, #fff 3px);
+    border-color: #000;
+    position: absolute;
+}
+
+.account__avatar-overlay::before {
+    border-radius: 2px 2px 15px 15px;
+    transform: rotate(-30deg);
+    left: 30px;
+    top: 8px;
+    transform-origin: top left;
+}
+
+.account__avatar-overlay::after {
+    border-radius: 2px 2px 15px 15px;
+    transform: rotate(30deg);
+    right: 42px;
+    top: 8px;
+    transform-origin: top right;
+}
+
+.account__avatar,
+.account__avatar-overlay-base,
+.account__avatar-overlay-overlay {
+    border-radius: 50%;
+}
+
+.account__avatar-overlay:hover::before,
+.status__avatar:hover::before {
+    animation: earwiggleright .2s infinite;
+}
+
+.account__avatar-overlay:hover::after,
+.status__avatar:hover::after {
+  animation: earwiggleleft .2s infinite;
+}
+
+@keyframes earwiggleleft {
+    from { transform: rotate(30deg);}
+    25% { transform: rotate(0deg);}
+    50% { transform: rotate(-30deg);}
+    75% { transform: rotate(0deg);}
+    to { transform: rotate(30deg);}
+}
+
+@keyframes earwiggleright {
+    from { transform: rotate(-30deg);}
+    25% { transform: rotate(0deg);}
+    50% { transform: rotate(30deg);}
+    75% { transform: rotate(0deg);}
+    to { transform: rotate(-30deg);}
+}
+
+.display-name {
+    padding: 0px 0px 0px 12px;
+}
