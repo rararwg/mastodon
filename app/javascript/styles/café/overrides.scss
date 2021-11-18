@@ -1,6 +1,6 @@
 /*---------
 MISC TWEAKS
-* To the moon https://freebirdgames.com/de/to_the_moon/
+* my DIY cafe from Robotime
 ---------*/
 
 /* replace elephant friend with a pair */
@@ -47,3 +47,13 @@ body.app-body.layout-multiple-columns {
 	background-position: center;
     }
 }
+
+.status__action-bar-button.icon-button:nth-child(3):hover,
+.status__action-bar-button.icon-button:nth-child(3):active,
+.status__action-bar-button.icon-button:nth-child(3).active,
+.status__action-bar-button.icon-button:nth-child(3):focus,
+.detailed-status__action-bar .detailed-status__button:nth-child(3) .icon-button:hover,
+.detailed-status__action-bar .detailed-status__button:nth-child(3) .icon-button:active,
+.detailed-status__action-bar .detailed-status__button:nth-child(3) .icon-button.active,
+.notification__favourite-icon-wrapper .star-icon
+{color: #f9bb00;}
