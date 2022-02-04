@@ -89,3 +89,7 @@ body.app-body.layout-multiple-columns {
     color: var(--text);
     border-radius: 8px;
 }
+
+code {
+    background-color: darken($bg, 5%);
+}

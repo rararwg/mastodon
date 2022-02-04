@@ -2,7 +2,7 @@
 * RECOLOR STATUS ACTIONS
 *
 * This tweak gets its own section because it's pretty messy and long.
-* 
+*
 * Replies, follows, faves, dropdown menu, and share can easily be themed,
 * but I can't figure out how to make them look good against the palette.
 * Manual color selection may be required, if these colors don't fit well.
@@ -89,10 +89,8 @@
 .icon-button:hover .fa-retweet
 {color: #0d9;}
 
-/* recolor boosts (preserve animation, unthemeable default state */
-
 button.icon-button:hover i.fa-retweet,
-.no-reduce-motion button.icon-button.active i.fa-retweet
+.no-reduce-motion button.icon-button.active i.fa-retweet,
 {
     filter: sepia(100%)
         hue-rotate(110deg)

@@ -3,6 +3,12 @@ $no-columns-breakpoint: 600px;
 code {
   font-family: $font-monospace, monospace;
   font-weight: 400;
+  margin: 0;
+  font-size: 85%;
+  background-color: darken($ui-base-color, 7%);
+  border-radius: 3px;
+  hyphens: none;
+  white-space: pre;
 }
 
 .form-container {

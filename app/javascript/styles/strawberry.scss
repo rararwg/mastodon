@@ -1,16 +1,16 @@
-$action-button-color: #ddffd6;
-$highlight-text-color: #e6b863;
+$action-button-color: rgb(243, 226, 124);
+$highlight-text-color: rgb(239, 249, 126);
 $ui-highlight-color: $highlight-text-color;
-$primary-text-color: #f2f2f2;
-$ui-base-color: rgba(238,225,191, 0.6);
-$darker-text-color: #ece3cd;
-$secondary-text-color: #e8b99b;
+$primary-text-color: rgb(246, 137, 66);
+$ui-base-color: rgba(255, 152, 121, 0.7);
+$darker-text-color: rgb(130, 13, 17);
+$secondary-text-color: rgb(255, 85, 85);
 
 @import 'application';
 
 @import 'mfc/mastodonFlat';
-@import 'flora/palette';
-@import 'flora/overrides';
+@import 'strawberry/palette';
+@import 'strawberry/overrides';
 
 @import 'mods/display_breakname';
 @import 'mods/display_fullname';

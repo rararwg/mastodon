@@ -39,23 +39,23 @@
 *     It is now possible to use a dark bgPage and light bg, or vice-versa.
 ------------------------------------------------------------------------------*/
 
-/* infinity bridge
+/* strawberry
  * palette author https://github.com/RiverIntheSky/
  */
 
 :root {
-    --bg: rgba(0, 0, 0, 0);
-    --text: #000;
-    --textBold: #000;
-    --textMuted: #444b5d;
+    --bg: rgba(255, 152, 121, 0.5);
+    --text: rgb(246, 137, 66);
+    --textBold: rgb(106, 62, 37);
+    --textMuted: rgb(244, 175, 145);
 
-    --bgPage: rgba(0, 0, 0, 0);
+    --bgPage: rgb(255, 189, 167);
     --textPage: var(--text);
     --textPageBold: var(--textBold);
     --textPageMuted: var(--textMuted);
 
-    --bgHead: rgba(0, 0, 0, 0);
-    --textHead: #000;
-    --accent: #888;
+    --bgHead: rgb(103, 145, 50);
+    --textHead: rgb(47, 67, 16);
+    --accent: rgb(239, 249, 126);
     --accentText: var(--textBold);
 }

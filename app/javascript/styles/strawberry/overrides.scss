@@ -1,0 +1,120 @@
+$bg: rgb(255, 152, 121);
+
+.drawer__inner__mastodon {
+    background: url('../images/strawphant_ui_plane.svg')
+		no-repeat bottom / 100%, url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234.80078 31.757813" width="234.80078" height="31.757812"><path d="M19.599609 0c-1.05 0-2.10039.375-2.90039 1.125L0 16.925781v14.832031h234.80078V17.025391l-16.5-15.900391c-1.6-1.5-4.20078-1.5-5.80078 0l-13.80078 13.099609c-1.6 1.5-4.19883 1.5-5.79883 0L179.09961 1.125c-1.6-1.5-4.19883-1.5-5.79883 0L159.5 14.224609c-1.6 1.5-4.20078 1.5-5.80078 0L139.90039 1.125c-1.6-1.5-4.20078-1.5-5.80078 0l-13.79883 13.099609c-1.6 1.5-4.20078 1.5-5.80078 0L100.69922 1.125c-1.600001-1.5-4.198829-1.5-5.798829 0l-13.59961 13.099609c-1.6 1.5-4.200781 1.5-5.800781 0L61.699219 1.125c-1.6-1.5-4.198828-1.5-5.798828 0L42.099609 14.224609c-1.6 1.5-4.198828 1.5-5.798828 0L22.5 1.125C21.7.375 20.649609 0 19.599609 0z" fill="#{hex-color($ui-base-color)}"/></svg>') no-repeat bottom / 100% auto !important;
+    @media screen and (min-height: 630px) {
+	display: block;
+    }
+}
+
+.drawer__inner__mastodon > img {display: none;}
+
+// body.app-body.layout-multiple-columns {
+//     .columns-area {
+// 	background: url('../images/flora.jpg');
+// 	background-position: center center;
+// 	background-attachment: fixed;
+//     }
+// }
+
+/* vignette on headers and dropdowns */
+.column-header { box-shadow: inset 0 0 8px 8px rgba(0,0,0,0.1);}
+
+.navigation-panel, .column-header {
+    border-radius: 8px 8px 0 0;
+}
+
+.account-authorize__wrapper, .conversation, .follow_requests-unlocked_explanation, .status, .search__input {
+    border-radius: 8px;
+}
+
+.status__content__text {
+    margin-left: 0.25em;
+}
+
+.compose-form__buttons-wrapper {
+    border-radius: 0px 0px 4px 4px;
+}
+
+.column-header__button {background: transparent !important;}
+.column-header__collapsible-inner {box-shadow: inset 0 0 10em 10em rgba(0,0,0,0.1);}
+
+.columns-area--mobile .status {
+    padding: 0;
+}
+
+.status {
+    padding: 15px 8px 8px 8px !important;
+}
+
+.status__info {
+    padding: 5px 0px 10px 60px !important;
+}
+
+.tabs-bar__wrapper {
+    padding: 0;
+}
+
+.privacy-dropdown__dropdown, .emoji-mart-scroll,
+.getting-started__footer, .emoji-mart-category-label span,
+.emoji-mart-search {
+    background: var(--bg);
+}
+
+.emoji-mart-bar:first-child {
+    background: var(--bgHead);
+}
+
+.compose-form__uploads-wrapper {
+    padding: 15px;
+}
+
+// @media (max-width: 630px) {
+//     .columns-area__panels, body {
+// 	background: url('../images/flora.jpg');
+// 	background-size: auto 100%;
+// 	background-attachment: fixed;
+// 	background-position: center;
+//     }
+// }
+
+.status__expand {
+    height: 68px;
+}
+
+.icon-button {
+    color: $action-button-color;
+}
+
+.form-container {
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 8px;
+}
+
+code {
+    background-color: darken($bg, 5%);
+}
+
+.status__wrapper .status:first-child .status__avatar::before {
+    position: absolute;
+    content: '';
+    background: url('../images/strawberry-head.svg');
+    width: 48px;
+    height: 48px;
+    top: -8px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+ .account__avatar-overlay::after {
+     position: absolute;
+     content: '';
+     background: url('../images/strawberry-head_36.svg');
+     width: 36px;
+     height: 36px;
+     pointer-events: none;
+     top: -6px;
+     z-index: 1;
+ }
