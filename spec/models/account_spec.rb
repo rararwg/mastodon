@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
@@ -611,8 +612,8 @@ RSpec.describe Account, type: :model do
         expect(account).to model_have_error_on_field(:username)
       end
 
-      it 'is invalid if the username is longer then 30 characters' do
-        account = Fabricate.build(:account, username: Faker::Lorem.characters(number: 31))
+      it 'is invalid if the username is longer then 33 characters' do
+        account = Fabricate.build(:account, username: Faker::Lorem.characters(number: 34))
         account.valid?
         expect(account).to model_have_error_on_field(:username)
       end
