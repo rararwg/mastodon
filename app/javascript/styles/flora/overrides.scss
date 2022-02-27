@@ -49,6 +49,12 @@ body.app-body.layout-multiple-columns {
     padding: 15px 8px 8px 8px !important;
 }
 
+.notification-favourite .status,
+.notification-poll .status,
+.notification-reblog .status {
+    padding: 15px 8px 8px 78px !important;
+}
+
 .status__info {
     padding: 5px 0px 10px 60px !important;
 }
@@ -83,6 +89,7 @@ body.app-body.layout-multiple-columns {
 .status__expand {
     height: 68px;
 }
+
 
 .form-container {
     background: var(--bg);

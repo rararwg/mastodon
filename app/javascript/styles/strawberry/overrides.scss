@@ -48,6 +48,13 @@ $bg: rgb(255, 152, 121);
     padding: 15px 8px 8px 8px !important;
 }
 
+
+.notification-favourite .status,
+.notification-poll .status,
+.notification-reblog .status {
+    padding: 15px 8px 8px 78px !important;
+}
+
 .status__info {
     padding: 5px 0px 10px 60px !important;
 }
