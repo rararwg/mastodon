@@ -19,7 +19,7 @@
     - if approved_registrations?
       .fields-group
         = f.simple_fields_for :invite_request do |invite_request_fields|
-          = invite_request_fields.input :text, as: :text, wrapper: :with_block_label, required: Setting.require_invite_text
+          = invite_request_fields.input :text, as: :text, wrapper: :with_block_label, required: Setting.require_invite_text, placeholder: "新用户注册请 1. 填写详细的申请理由，或者附上别处的社交账号。2. 给出 Rhabarberbarbarabar 的中文翻译。"
 
     .fields-group
       = f.input :agreement, as: :boolean, wrapper: :with_label, label: t('auth.checkbox_agreement_html', rules_path: about_more_path, terms_path: terms_path), required: true, disabled: disabled

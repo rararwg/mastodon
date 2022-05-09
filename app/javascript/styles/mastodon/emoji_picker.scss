@@ -3,6 +3,7 @@
   display: inline-block;
   color: $inverted-text-color;
 
+
   &,
   * {
     box-sizing: border-box;
@@ -10,7 +11,7 @@
   }
 
   .emoji-mart-emoji {
-    padding: 6px;
+    padding: 3px;
   }
 }
 
