@@ -819,14 +819,9 @@ DEPENDENCIES
   rails-controller-testing (~> 1.0)
   rails-i18n (~> 6.0)
   rails-settings-cached (~> 0.6)
-<<<<<<< HEAD
   rdf-normalize (~> 0.5)
   redis (~> 4.5)
-=======
-  rdf-normalize (~> 0.4)
   redcarpet (~> 3.5)
-  redis (~> 4.2)
->>>>>>> add markdown support
   redis-namespace (~> 1.8)
   rexml (~> 3.2)
   rqrcode (~> 2.1)
@@ -850,12 +845,8 @@ DEPENDENCIES
   stackprof
   stoplight (~> 2.2.1)
   strong_migrations (~> 0.7)
-<<<<<<< HEAD
   thor (~> 1.2)
-=======
   strscan (~> 3.0)
-  thor (~> 1.1)
->>>>>>> TeX support
   tty-prompt (~> 0.23)
   twitter-text (~> 3.1.0)
   tzinfo-data (~> 1.2022)
