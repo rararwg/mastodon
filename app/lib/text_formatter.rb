@@ -44,7 +44,7 @@ class TextFormatter
   # @option options [Array<Account>] :preloaded_accounts
   def initialize(text, options = {})
     @options = DEFAULT_OPTIONS.merge(options)
-    @text    = format_markdown(format_latex(text))
+    @text    = format_markdown(text)
   end
 
   # Differs from official `TextFormatter` by skipping HTML tags and entities

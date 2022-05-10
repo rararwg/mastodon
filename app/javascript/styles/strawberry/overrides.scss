@@ -115,7 +115,7 @@ code {
     z-index: 1;
 }
 
- .account__avatar-overlay::after {
+.account__avatar-overlay::after {
      position: absolute;
      content: '';
      background: url('../images/strawberry-head_36.svg');
