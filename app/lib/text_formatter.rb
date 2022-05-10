@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'tex2ml'
+
 class TextFormatter
   include ActionView::Helpers::TextHelper
   include ERB::Util
@@ -15,6 +17,25 @@ class TextFormatter
 
   attr_reader :text, :options
 
+  class HTMLRenderer < Redcarpet::Render::HTML
+    def initialize(options, &block)
+      super(options)
+      @format_link = block
+    end
+
+    def block_code(code, _language)
+      <<~HTML.squish
+        <pre><code>#{h(code).gsub("\n", '<br/>')}</code></pre>
+      HTML
+    end
+
+    def autolink(link, link_type)
+      return link if link_type == :email
+      @format_link.call(link)
+    end
+  end
+
+
   # @param [String] text
   # @param [Hash] options
   # @option options [Boolean] :multiline
@@ -22,14 +43,33 @@ class TextFormatter
   # @option options [Boolean] :with_rel_me
   # @option options [Array<Account>] :preloaded_accounts
   def initialize(text, options = {})
-    @text    = text
     @options = DEFAULT_OPTIONS.merge(options)
+    @text    = format_markdown(format_latex(text))
   end
 
+  # Differs from official `TextFormatter` by skipping HTML tags and entities
   def entities
-    @entities ||= Extractor.extract_entities_with_indices(text, extract_url_without_protocol: false)
+    @entities ||= begin
+      gaps = []
+      total_offset = 0
+
+      escaped = text.gsub(/<[^>]*>|&#[0-9]+;/) do |match|
+        total_offset += match.length - 1
+        end_offset = Regexp.last_match.end(0)
+        gaps << [end_offset - total_offset, total_offset]
+        ' '
+      end
+
+      Extractor.extract_entities_with_indices(escaped, extract_url_without_protocol: false).map do |entity|
+        start_pos, end_pos = entity[:indices]
+        offset_idx = gaps.rindex { |gap| gap.first <= start_pos }
+        offset = offset_idx.nil? ? 0 : gaps[offset_idx].last
+        entity.merge(indices: [start_pos + offset, end_pos + offset])
+      end
+    end
   end
 
+  # Differs from official TextFormatter by not messing with newline after parsing
   def to_s
     return ''.html_safe if text.blank?
 
@@ -43,13 +83,12 @@ class TextFormatter
       end
     end
 
-    html = simple_format(html, {}, sanitize: false).delete("\n") if multiline?
-
     html.html_safe # rubocop:disable Rails/OutputSafety
   end
 
   private
 
+  # Differs from official `TextFormatter` in that it keeps HTML; but it sanitizes at the end to remain safe
   def rewrite
     entities.sort_by! do |entity|
       entity[:indices].first
@@ -59,14 +98,53 @@ class TextFormatter
 
     last_index = entities.reduce(0) do |index, entity|
       indices = entity[:indices]
-      result << h(text[index...indices.first])
+      result << text[index...indices.first]
       result << yield(entity)
       indices.last
     end
 
-    result << h(text[last_index..-1])
+    result << text[last_index..-1]
 
-    result
+    Sanitize.fragment(result, Sanitize::Config::MASTODON_OUTGOING)
+  end
+
+  def format_markdown(html)
+    html = markdown_formatter.render(html)
+    html.delete("\r").delete("\n")
+  end
+
+  def format_latex(html)
+    Tex2ml.render(html)
+  end
+
+  def markdown_formatter
+    extensions = {
+      autolink: true,
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      disable_indented_code_blocks: true,
+      strikethrough: true,
+      lax_spacing: true,
+      space_after_headers: true,
+      superscript: true,
+      underline: true,
+      highlight: true,
+      footnotes: false,
+    }
+
+    renderer = HTMLRenderer.new({
+      filter_html: false,
+      escape_html: false,
+      no_images: true,
+      no_styles: true,
+      safe_links_only: true,
+      hard_wrap: true,
+      link_attributes: { target: '_blank', rel: 'nofollow noopener' },
+    }) do |url|
+      link_to_url({ url: url })
+    end
+
+    Redcarpet::Markdown.new(renderer, extensions)
   end
 
   def link_to_url(entity)

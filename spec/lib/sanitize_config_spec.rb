@@ -3,27 +3,25 @@
 require 'rails_helper'
 
 describe Sanitize::Config do
-  describe '::MASTODON_STRICT' do
-    subject { Sanitize::Config::MASTODON_STRICT }
+  describe '::MASTODON_OUTGOING' do
+    subject { Sanitize::Config::MASTODON_OUTGOING }
 
-    it 'converts h1 to p' do
-      expect(Sanitize.fragment('<h1>Foo</h1>', subject)).to eq '<p>Foo</p>'
+    around do |example|
+      original_web_domain = Rails.configuration.x.web_domain
+      example.run
+      Rails.configuration.x.web_domain = original_web_domain
     end
 
-    it 'converts ul to p' do
-      expect(Sanitize.fragment('<p>Check out:</p><ul><li>Foo</li><li>Bar</li></ul>', subject)).to eq '<p>Check out:</p><p>Foo<br>Bar</p>'
+    it 'keeps h1' do
+      expect(Sanitize.fragment('<h1>Foo</h1>', subject)).to eq '<h1>Foo</h1>'
     end
 
-    it 'converts p inside ul' do
-      expect(Sanitize.fragment('<ul><li><p>Foo</p><p>Bar</p></li><li>Baz</li></ul>', subject)).to eq '<p>Foo<br>Bar<br>Baz</p>'
+    it 'keeps ul' do
+      expect(Sanitize.fragment('<p>Check out:</p><ul><li>Foo</li><li>Bar</li></ul>', subject)).to eq '<p>Check out:</p><ul><li>Foo</li><li>Bar</li></ul>'
     end
 
-    it 'converts ul inside ul' do
-      expect(Sanitize.fragment('<ul><li>Foo</li><li><ul><li>Bar</li><li>Baz</li></ul></li></ul>', subject)).to eq '<p>Foo<br>Bar<br>Baz</p>'
-    end
-
-    it 'keep links in lists' do
-      expect(Sanitize.fragment('<p>Check out:</p><ul><li><a href="https://joinmastodon.org" rel="nofollow noopener noreferrer" target="_blank">joinmastodon.org</a></li><li>Bar</li></ul>', subject)).to eq '<p>Check out:</p><p><a href="https://joinmastodon.org" rel="nofollow noopener noreferrer" target="_blank">joinmastodon.org</a><br>Bar</p>'
+    it 'keeps start and reversed attributes of ol' do
+      expect(Sanitize.fragment('<p>Check out:</p><ol start="3" reversed=""><li>Foo</li><li>Bar</li></ol>', subject)).to eq '<p>Check out:</p><ol start="3" reversed=""><li>Foo</li><li>Bar</li></ol>'
     end
 
     it 'removes a without href' do
@@ -40,6 +38,19 @@ describe Sanitize::Config do
 
     it 'keeps a with href' do
       expect(Sanitize.fragment('<a href="http://example.com">Test</a>', subject)).to eq '<a href="http://example.com" rel="nofollow noopener noreferrer" target="_blank">Test</a>'
+    end
+
+    it 'removes a with unparsable href' do
+      expect(Sanitize.fragment('<a href=" https://google.fr">Test</a>', subject)).to eq 'Test'
+    end
+
+    it 'keeps a with supported scheme and no host' do
+      expect(Sanitize.fragment('<a href="dweb:/a/foo">Test</a>', subject)).to eq '<a href="dweb:/a/foo" rel="nofollow noopener noreferrer" target="_blank">Test</a>'
+    end
+
+    it 'keeps a with href and rel tag, not adding to rel or target if url is local' do
+      Rails.configuration.x.web_domain = 'domain.test'
+      expect(Sanitize.fragment('<a href="http://domain.test/tags/foo" rel="tag">Test</a>', subject)).to eq '<a href="http://domain.test/tags/foo" rel="tag">Test</a>'
     end
   end
 end
