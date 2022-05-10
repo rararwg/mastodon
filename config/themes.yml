@@ -6,5 +6,6 @@ infinity-bridge: styles/infinity-bridge.scss
 stardew-valley: styles/stardew-valley.scss
 cafe: styles/café.scss
 flora: styles/flora.scss
-test: styles/sheep.scss
-test2: styles/strawberry.scss
+black-cat: styles/black-cat.scss
+test0: styles/sheep.scss
+test1: styles/strawberry.scss
