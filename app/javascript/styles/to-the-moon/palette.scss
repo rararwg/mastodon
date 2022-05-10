@@ -8,7 +8,7 @@
 * via using these variables with rgba(). Hex codes currently do not
 * work with rgba(), so no transparency mods are included except for
 * those defined in absolute terms (i.e., non-variable colors).
-* 
+*
 * Foreground Colors:
 *            --bg: | Background for foreground elements.
 *          --text: | A color that stands out against bg.
@@ -44,18 +44,18 @@
  */
 
 :root {
---bg: rgba(238,225,191, 0.6);
---text: rgb(17,36,53);
---textBold: rgb(17,36,53);
---textMuted: rgb(37,59,82);
+--bg: rgba(27, 47, 73, 0.9);
+--text: rgba(242, 233, 216, 0.95);
+--textBold: rgb(242, 233, 216);
+--textMuted: rgb(96,105,132);
 
---bgPage: rgb(156,165,144, 0.8);
+--bgPage: rgba(86, 93, 114,0.95);
 --textPage: var(--text);
 --textPageBold: var(--textBold);
 --textPageMuted: var(--textMuted);
 
 --bgHead: rgb(60,92,103);
 --textHead: var(--textBold);
---accent: rgb(62, 74, 74);
+--accent: rgb(242, 197, 167);
 --accentText: var(--textBold);
 }
