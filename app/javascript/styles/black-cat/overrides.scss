@@ -14,6 +14,12 @@ MISC TWEAKS
 
 .drawer__inner__mastodon > img {display: none;}
 
+.compose-panel {
+    .compose-form__autosuggest-wrapper {
+	background-color: rgba(70,94,140,0.1);
+    }
+}
+
 /* cat is you */
 body, .landing-page, .public-layout, .columns-area__panels{
     background: url("../images/black-cat-desktop.png");
