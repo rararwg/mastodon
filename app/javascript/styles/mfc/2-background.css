@@ -14,7 +14,6 @@ body.app-body,
 .drawer__inner.darker,
 .drawer__inner__mastodon,
 .tabs-bar,
-.tabs-bar__wrapper,
 .getting-started,
 .search-results__section h5,
 .account__section-headline,
@@ -99,6 +98,13 @@ body.theme-default,
 background: var(--bgPage);
 color: var(--textPage)
 }
+
+.tabs-bar__wrapper
+{
+background: transparent;
+color: var(--textPage)
+}
+
 
 /*--------------------
 override for bold text
