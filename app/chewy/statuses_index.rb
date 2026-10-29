@@ -21,14 +21,23 @@ class StatusesIndex < Chewy::Index
       },
     },
 
+    char_filter: {
+        tsconvert: {
+          type: 'stconvert',
+          keep_both: false,
+          delimiter: '#',
+          convert_type: 't2s',
+        },
+      },
+
     analyzer: {
       verbatim: {
-        tokenizer: 'uax_url_email',
+        tokenizer: 'ik_max_word',
         filter: %w(lowercase),
       },
 
       content: {
-        tokenizer: 'standard',
+        tokenizer: 'ik_max_word',
         filter: %w(
           lowercase
           asciifolding
@@ -38,10 +47,11 @@ class StatusesIndex < Chewy::Index
           english_stop
           english_stemmer
         ),
+        char_filter: %w(tsconvert),
       },
 
       hashtag: {
-        tokenizer: 'keyword',
+        tokenizer: 'ik_max_word',
         filter: %w(
           word_delimiter_graph
           lowercase
