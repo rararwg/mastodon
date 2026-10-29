@@ -30,7 +30,7 @@ class AccountsIndex < Chewy::Index
     analyzer: {
       # "The FOOING's bar" becomes "foo bar"
       natural: {
-        tokenizer: 'standard',
+        tokenizer: 'ik_max_word',
         filter: %w(
           lowercase
           asciifolding
@@ -44,20 +44,20 @@ class AccountsIndex < Chewy::Index
 
       # "FOO bar" becomes "foo bar"
       verbatim: {
-        tokenizer: 'standard',
+        tokenizer: 'ik_max_word',
         filter: %w(lowercase asciifolding cjk_width),
       },
 
       # "Foo bar" becomes "foo bar foobar"
       word_join_analyzer: {
         type: 'custom',
-        tokenizer: 'standard',
+        tokenizer: 'ik_max_word',
         filter: %w(lowercase asciifolding cjk_width word_joiner),
       },
 
       # "Foo bar" becomes "f fo foo b ba bar"
       edge_ngram: {
-        tokenizer: 'edge_ngram',
+        tokenizer: 'ik_max_word',
         filter: %w(lowercase asciifolding cjk_width),
       },
     },
