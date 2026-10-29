@@ -68,7 +68,7 @@ export const selectComposeCharsCount = createAppSelector(
     return {
       text,
       allText,
-      max: maxChars ?? 500,
+      max: maxChars ?? 5000,
       current: length(allText),
     };
   },
