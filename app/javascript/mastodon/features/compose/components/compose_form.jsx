@@ -320,6 +320,10 @@ class ComposeForm extends ImmutablePureComponent {
           <UploadForm />
           <ComposeQuotedStatus />
 
+          <div className="compose-helper-text">
+  	          **<strong>bold</strong>** *<em>italic</em>* ~~<del>strike</del>~~ `<code>code</code>` [text](link) &gt; quote <a href="https://rhabarberbarbara.bar/about/more#sec">help</a>
+          </div>
+
           <div className='compose-form__footer'>
             <div className='compose-form__actions'>
               <div className='compose-form__buttons'>

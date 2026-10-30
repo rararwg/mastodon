@@ -52,3 +52,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.compose-helper-text {
+  margin: 0px 12px;
+  font-size: 75%;
+  opacity: 0.2;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1.0;
+  }
+}

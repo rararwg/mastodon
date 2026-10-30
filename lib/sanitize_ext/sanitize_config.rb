@@ -56,15 +56,6 @@ class Sanitize
       current_node.replace(current_node.document.create_text_node(current_node.text)) unless LINK_PROTOCOLS.include?(scheme)
     end
 
-    UNSUPPORTED_ELEMENTS_TRANSFORMER = lambda do |env|
-      return unless %w(h1 h2 h3 h4 h5 h6).include?(env[:node_name])
-
-      current_node = env[:node]
-
-      current_node.name = 'strong'
-      current_node.wrap('<p></p>')
-    end
-
     # We assume that incomming <math> nodes are of the form
     # <math><semantics>...<annotation>...</annotation></semantics></math>
     # according to the [FEP]. We try to grab the most relevant plain-text
@@ -107,12 +98,14 @@ class Sanitize
     end
 
     MASTODON_STRICT = freeze_config(
-      elements: %w(p br span a del s pre blockquote code b strong u i em ul ol li ruby rt rp),
+      elements: %w(p br span a abbr del s pre blockquote code b strong u sub sup i em h1 h2 h3 h4 h5 ul ol li ruby rt rp),
 
       attributes: {
         :all => %w(lang),
-        'a' => %w(href rel class translate),
+        'a' => %w(href rel class title translate),
+        'abbr' => %w(title),
         'span' => %w(class translate),
+        'blockquote' => %w(cite),
         'ol' => %w(start reversed),
         'li' => %w(value),
         'p' => %w(class),
@@ -125,13 +118,15 @@ class Sanitize
         },
       },
 
-      protocols: {},
+      protocols: {
+        'a' => { 'href' => LINK_PROTOCOLS },
+        'blockquote' => { 'cite' => LINK_PROTOCOLS },
+      },
 
       transformers: [
         ALLOWED_CLASS_TRANSFORMER,
         TRANSLATE_TRANSFORMER,
         MATH_TRANSFORMER,
-        UNSUPPORTED_ELEMENTS_TRANSFORMER,
         UNSUPPORTED_HREF_TRANSFORMER,
       ]
     )
@@ -154,6 +149,49 @@ class Sanitize
       add_attributes: {
         'iframe' => { 'sandbox' => 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms' },
       }
+    )
+
+    LINK_REL_TRANSFORMER = lambda do |env|
+      return unless env[:node_name] == 'a' && env[:node]['href']
+
+      node = env[:node]
+
+      rel = (node['rel'] || '').split & ['tag']
+      rel += %w(nofollow noopener) unless TagManager.instance.local_url?(node['href'])
+
+      if rel.empty?
+        node.remove_attribute('rel')
+      else
+        node['rel'] = rel.join(' ')
+      end
+    end
+
+    LINK_TARGET_TRANSFORMER = lambda do |env|
+      return unless env[:node_name] == 'a' && env[:node]['href']
+
+      node = env[:node]
+      if node['target'] != '_blank' && TagManager.instance.local_url?(node['href'])
+        node.remove_attribute('target')
+      else
+        node['target'] = '_blank'
+      end
+    end
+
+    MASTODON_OUTGOING = freeze_config MASTODON_STRICT.merge(
+      attributes: merge(
+        MASTODON_STRICT[:attributes],
+        'a' => %w(href rel class title target translate)
+      ),
+
+      add_attributes: {},
+
+      transformers: [
+        ALLOWED_CLASS_TRANSFORMER,
+        TRANSLATE_TRANSFORMER,
+        UNSUPPORTED_HREF_TRANSFORMER,
+        LINK_REL_TRANSFORMER,
+        LINK_TARGET_TRANSFORMER,
+      ]
     )
   end
 end
