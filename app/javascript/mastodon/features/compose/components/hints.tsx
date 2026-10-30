@@ -81,6 +81,19 @@ export const ComposeHints = (props: React.ComponentPropsWithRef<'div'>) => {
     );
   }
 
+  messages.push(
+    <ComposerHint>
+      <FormattedMessage
+        defaultMessage="**<b>bold</b>** *<em>italic</em>* ~~<del>strike</del>~~ `<code>code</code>` [text](link) > quote"
+        values={{
+          b: msg => <b>{msg}</b>,
+          em: msg => <em>{msg}</em>,
+          del: msg => <del>{msg}</del>,
+          code: msg => <code>{msg}</code>,
+        }} />
+      </ComposerHint>,
+    );
+
   if (replyFollowersHandle) {
     messages.push(
       defaultWrapper(
@@ -145,6 +158,16 @@ const ComposerError: React.FC<{ children: React.ReactNode }> = ({
     <div className={classes.calloutError}>
       <Icon icon={WarningIcon} />
 
+      {children}
+    </div>
+  );
+};
+
+const ComposerHint: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return (
+    <div className="compose-helper-text">
       {children}
     </div>
   );

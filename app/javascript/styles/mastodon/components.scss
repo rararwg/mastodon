@@ -10192,3 +10192,15 @@ noscript {
     gap: 4px;
   }
 }
+
+.compose-helper-text {
+  margin: 0 12px;
+  opacity: 0.2;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1.0;
+  }
+}
