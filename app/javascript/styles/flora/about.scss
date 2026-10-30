@@ -1,0 +1,149 @@
+@use 'variables' as *;
+
+$maximum-width: 1235px;
+$fluid-breakpoint: $maximum-width + 20px;
+
+.container {
+  box-sizing: border-box;
+  max-width: $maximum-width;
+  margin: 0 auto;
+  position: relative;
+
+  @media screen and (max-width: $fluid-breakpoint) {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+.brand {
+  position: relative;
+  text-decoration: none;
+}
+
+.rules-list {
+  font-size: 15px;
+  line-height: 22px;
+  counter-reset: list-counter;
+
+  li {
+    position: relative;
+    border-bottom: 1px solid var(--color-border-primary);
+    padding: 1em 1.75em;
+    padding-inline-start: 3em;
+    font-weight: bold;
+    counter-increment: list-counter;
+    min-height: 4ch;
+
+    &::before {
+      content: counter(list-counter);
+      position: absolute;
+      inset-inline-start: 0;
+      top: 1em;
+      background: var(--color-bg-brand-base);
+      color: var(--color-text-on-brand-base);
+      border-radius: 50%;
+      width: 4ch;
+      height: 4ch;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__text {
+    color: var(--color-text-primary);
+  }
+
+  &__hint {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+
+    // Giving this a focus outline as the hint
+    // will be focused when toggling the full hint
+    &:focus-visible {
+      outline: var(--outline-focus-default);
+      outline-offset: 2px;
+    }
+  }
+
+  &__toggle-button {
+    position: relative;
+    display: inline-flex;
+    vertical-align: -0.25em;
+    border: none;
+    border-radius: 4px;
+    color: var(--color-text-primary);
+    background: var(--color-bg-secondary);
+
+    &[hidden] {
+      display: none;
+    }
+
+    &[aria-expanded='true'] .icon-expand,
+    &[aria-expanded='false'] .icon-collapse {
+      display: none;
+    }
+
+    .icon {
+      width: 1lh;
+      height: 1lh;
+    }
+
+    &:hover {
+      background: var(--color-bg-tertiary);
+    }
+
+    &:focus-visible {
+      outline: var(--outline-focus-default);
+      outline-offset: 2px;
+    }
+
+    &::before {
+      // Increase clickable size
+      content: '';
+      position: absolute;
+      inset: -12px;
+    }
+  }
+}
+
+.rules-languages {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+
+  > label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  select {
+    appearance: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: var(--color-text-primary);
+    display: block;
+    width: 100%;
+    outline: 0;
+    font-family: inherit;
+    resize: vertical;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: 4px;
+    padding-inline-start: 10px;
+    padding-inline-end: 30px;
+    height: 41px;
+
+    @media screen and (width <= 600px) {
+      font-size: 16px;
+    }
+  }
+}

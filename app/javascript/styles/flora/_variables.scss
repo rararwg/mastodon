@@ -1,0 +1,15 @@
+// Keep this filter a SCSS variable rather than
+// a CSS Custom Property due to this Safari bug:
+// https://github.com/mdn/browser-compat-data/issues/25914#issuecomment-2676190245
+$backdrop-blur-filter: blur(10px) saturate(180%) contrast(75%) brightness(70%);
+
+// Language codes that uses CJK fonts
+$cjk-langs: ja, ko, zh-CN, zh-HK, zh-TW;
+
+// Language codes that is written vertically
+$vertical-lr-langs: mn-Mong;
+
+$no-gap-breakpoint: 1175px;
+$mobile-menu-breakpoint: 760px;
+$mobile-breakpoint: 630px;
+$no-columns-breakpoint: 600px;

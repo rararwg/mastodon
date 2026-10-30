@@ -6,3 +6,8 @@ default:
     - pink
     - orange
     - cyan
+Custom:
+  path: styles/flora.scss
+  colors:
+    - flora
+    - to-the-moon
