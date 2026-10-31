@@ -1,7 +1,7 @@
 @use 'utils';
 
 @mixin base-flora {
-  --base-color-bg: #364132b3;
+  --base-color-bg: #8b9163e6;
   --base-color-bg-desktop: #364132b3;
   --base-color-fg: #f2f2f2;
   --base-color-fg-on-accent: #475E4C;
@@ -17,7 +17,7 @@
 }
 
 @mixin base-to-the-moon {
-  --base-color-bg: #1b2f49b3;
+  --base-color-bg: #1b2f49d9;
   --base-color-bg-desktop: #565d72b3;
   --base-color-fg: #f2e9d8;
   --base-color-fg-on-accent: #6f888d;
@@ -32,18 +32,19 @@
   }
 }
 
-@mixin base-pink {
-  --base-color-bg: var(--color-white);
-  --base-color-bg-desktop: var(--color-pink-50);
-  --base-color-fg: var(--color-grey-900);
-  --base-color-fg-on-accent: var(--base-color-bg);
-  --base-color-fg-accent: var(--color-pink-700);
-  --base-color-bg-accent: var(--color-pink-600);
-  --base-color-danger: var(--color-red-700);
-  --base-highlight-strength: 8%;
+@mixin base-dogwalk {
+  --base-color-bg: #4c3f3cd9;
+  --base-color-bg-desktop: #789ebcb3;
+  --base-color-fg: #FAF1E0;
+  --base-color-fg-on-accent: #d6cfcc;
+  --base-color-fg-accent: #c2d6b7;
+  --base-color-bg-accent: #5e6e56;
+  --base-color-danger: #e6a1c0;
+  --base-highlight-strength: 15%;
+  --background-image: url('../../../../images/dog-walk.jpg');
 
   @include utils.high-contrast {
-    --base-color-bg-accent: var(--color-pink-700);
+    --base-color-bg-accent: var(--color-lime-700);
   }
 }
 

@@ -1,0 +1,39 @@
+._navigation_panel_redesign__root,
+._comp_columns_area__discoveryWrapper,
+._comp_column__root,
+.sidebar,
+.content
+{
+    background: var(--base-color-bg-desktop);
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
+    border-radius: 16px;
+}
+
+.navigation_panel, ._comp_status__mainWrapper {
+    border-radius: 8px;
+}
+
+._comp_status__contentWrapper {
+    background: var(--base-color-bg-desktop);
+    padding: 2px;
+    border-radius: 2px;
+}
+
+._comp_columns_area__main,
+._comp_column_header__root {
+    background: none !important;
+}
+
+.sidebar,
+._comp_column__root,
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+._feat_compose__root,
+._comp_button_redesign__accent {
+    background: var(--tree-bark) !important;
+    background-position: center center !important;
+}

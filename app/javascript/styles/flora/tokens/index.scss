@@ -30,8 +30,8 @@ html:not([data-color-scheme]) {
     @include dark.base-to-the-moon;
   }
 
-  &[data-theme-color='pink'] {
-    @include dark.base-pink;
+  &[data-theme-color='dogwalk'] {
+     @include dark.base-dogwalk;
   }
 
   &[data-theme-color='orange'] {
@@ -54,8 +54,8 @@ html:not([data-color-scheme]) {
     @include light.base-to-the-moon;
   }
 
-  &[data-theme-color='pink'] {
-    @include light.base-pink;
+  &[data-theme-color='dogwalk'] {
+    @include light.base-dogwalk;
   }
 
   &[data-theme-color='orange'] {

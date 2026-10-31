@@ -1,0 +1,214 @@
+/**
+ * Type styles
+ */
+
+@mixin type-heading-lg {
+  font-family: var(--font-heading);
+  font-size: var(--fs-26);
+  font-weight: 500;
+  font-variation-settings: 'GEOM' 50;
+  line-height: var(--lh-tighter);
+  letter-spacing: var(--ls-tighter);
+}
+
+@mixin type-heading-md {
+  font-family: var(--font-heading);
+  font-size: var(--fs-22);
+  font-weight: 500;
+  font-variation-settings: 'GEOM' 50;
+  line-height: var(--lh-tighter);
+  letter-spacing: var(--ls-tight);
+}
+
+@mixin type-heading-sm {
+  font-family: var(--font-heading);
+  font-size: var(--fs-18);
+  font-weight: 500;
+  font-variation-settings: 'GEOM' 50;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+@mixin type-body-lg {
+  font-family: var(--font-body);
+  font-size: var(--fs-18);
+  font-weight: normal;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-normal);
+}
+
+@mixin type-body-strong {
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+  font-weight: bold;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-normal);
+}
+
+@mixin type-body {
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+  font-weight: normal;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-normal);
+}
+
+@mixin type-body-compact {
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+  font-weight: normal;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-normal);
+}
+
+@mixin type-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+  font-weight: bold;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-normal);
+}
+
+@mixin type-meta {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: normal;
+  line-height: var(--lh-tighter);
+  letter-spacing: var(--ls-loose);
+}
+
+@mixin type-caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-12);
+  font-weight: normal;
+  line-height: var(--lh-tighter);
+  letter-spacing: var(--ls-loose);
+}
+
+@mixin type-micro {
+  font-family: var(--font-body);
+  font-size: var(--fs-11);
+  font-weight: normal;
+  line-height: var(--lh-tighter);
+  letter-spacing: var(--ls-looser);
+}
+
+/**
+ * Elevation styles
+ */
+
+@mixin elevation-1 {
+  border: var(--border-default);
+  box-shadow:
+    0 0 var(--space-half) 0 var(--color-border-primary),
+    0 var(--space-1) var(--space-2) 0 var(--color-bg-highlight);
+}
+
+@mixin elevation-2 {
+  border: var(--border-default);
+  box-shadow:
+    0 0 var(--space-half) 0 var(--color-border-primary),
+    0 var(--space-1) var(--space-2) 0 var(--color-bg-highlight);
+}
+
+/**
+ * Focus styles
+ */
+
+@mixin focus($offset: false) {
+  outline: var(--bw-thick) solid var(--color-border-brand);
+
+  @if $offset != false {
+    outline-offset: var(--bw-thick);
+  }
+}
+
+/**
+ * Scroll gradient
+ */
+
+@mixin scroll-gradient($position, $background-color: var(--color-bg-primary)) {
+  content: '';
+  position: absolute;
+  @if $position == 'top' {
+    top: 100%;
+  } @else {
+    bottom: 100%;
+  }
+
+  inset-inline: 0;
+  height: calc(var(--space-10) * 2);
+  background: linear-gradient(to $position, transparent, $background-color);
+  pointer-events: none;
+}
+
+/**
+ * Search input styles
+ */
+
+@mixin search-input {
+  box-sizing: border-box;
+  width: 100%;
+  box-shadow: none;
+  font-family: inherit;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-radius: 4px;
+  border: var(--bw-default) solid var(--color-border-primary);
+  font-size: 17px;
+  line-height: normal;
+  margin: 0;
+  outline: var(--outline-focus-default);
+  outline-color: transparent;
+  outline-offset: -1px;
+  transition: outline-color 0.15s ease-out;
+}
+
+@mixin search-popout {
+  background: var(--color-bg-primary);
+  border-radius: 4px;
+  padding: 10px 14px;
+  padding-bottom: 14px;
+  margin-top: 10px;
+  color: var(--color-text-secondary);
+  box-shadow: 2px 4px 15px var(--color-shadow-primary);
+
+  h4 {
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  li {
+    padding: 4px 0;
+  }
+
+  ul {
+    margin-bottom: 10px;
+  }
+
+  em {
+    font-weight: bold;
+    color: var(--color-text-primary);
+  }
+}
+
+/**
+ * Utilities
+ */
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin line-clamp($lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+}

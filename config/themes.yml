@@ -6,8 +6,10 @@ default:
     - pink
     - orange
     - cyan
-Custom:
+Glass:
   path: styles/flora.scss
   colors:
     - flora
     - to-the-moon
+Dogwalk:
+  path: styles/dogwalk.scss
