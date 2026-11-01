@@ -5,12 +5,12 @@ import { FormattedMessage } from 'react-intl';
 import { useLocation } from 'react-router';
 
 import type { Placement } from '@floating-ui/react-dom';
+import { ChatCircleDotsIcon} from '@phosphor-icons/react';
 import {
-  BellIcon,
-  ChatCircleDotsIcon,
-  HouseIcon,
-  MagnifyingGlassIcon,
-} from '@phosphor-icons/react';
+  HomeIcon,
+  ExploreIcon,
+  NotificationIcon,
+ } from '@/mastodon/utils/icons';
 
 import { Avatar } from '@/mastodon/components/avatar';
 import { Menu, MenuList, MenuTrigger } from '@/mastodon/components/menu';
@@ -93,7 +93,7 @@ export const MiniNav: React.FC = () => {
           <li>
             <MiniNavigationLink
               as='button'
-              icon={MagnifyingGlassIcon}
+              icon={ExploreIcon()}
               onClick={openSearch}
               ref={searchButtonRef}
             >
@@ -120,7 +120,7 @@ export const MiniHomeLink: React.FC<
 > = ({ tooltipPlacement }) => (
   <MiniNavigationLink
     to='/home'
-    icon={HouseIcon}
+    icon={HomeIcon()}
     tooltipPlacement={tooltipPlacement}
   >
     <FormattedMessage id='tabs_bar.home' defaultMessage='Home' />
@@ -150,7 +150,7 @@ export const MiniNotificationsLink: React.FC<
   return (
     <MiniNavigationLink
       to='/notifications'
-      icon={BellIcon}
+      icon={NotificationIcon()}
       badgeCount={notificationsCount}
       {...props}
     >

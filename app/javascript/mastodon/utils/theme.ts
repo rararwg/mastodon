@@ -7,3 +7,8 @@ export function isDarkMode() {
   const { colorScheme } = document.documentElement.dataset;
   return colorScheme === 'dark';
 }
+
+export function getTheme(): string {
+  const { theme } = document.documentElement.dataset;
+  return theme ?? 'default';
+}
