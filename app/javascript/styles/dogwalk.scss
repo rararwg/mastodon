@@ -7,7 +7,7 @@
 
 @use 'mastodon/reset';
 @use 'dogwalk/tokens';
-@use 'dogwalk/basics';
+@use 'mastodon/basics';
 @use 'mastodon/branding';
 @use 'mastodon/containers';
 @use 'mastodon/lists';
@@ -20,7 +20,7 @@
 @use 'mastodon/emoji_picker';
 @use 'mastodon/about';
 @use 'mastodon/tables';
-@use 'dogwalk/admin';
+@use 'mastodon/admin';
 @use 'mastodon/dashboard';
 @use 'mastodon/rtl';
 @use 'mastodon/rich_text';

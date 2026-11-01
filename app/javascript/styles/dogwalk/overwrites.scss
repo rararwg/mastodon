@@ -1,13 +1,24 @@
+@mixin background-desktop {
+    background: var(--background-image);
+    background-position: center center;
+    background-size: auto 100%;
+    background-attachment: fixed;
+}
+
+@mixin frosted-glass{
+    background: var(--base-color-bg-desktop);
+    backdrop-filter: blur(var(--blur-radius));
+    -webkit-backdrop-filter: blur(var(--blur-radius));
+    border-radius: 16px;
+}
+
 ._navigation_panel_redesign__root,
 ._comp_columns_area__discoveryWrapper,
 ._comp_column__root,
 .sidebar,
 .content
 {
-    background: var(--base-color-bg-desktop);
-    backdrop-filter: blur(var(--blur-radius));
-    -webkit-backdrop-filter: blur(var(--blur-radius));
-    border-radius: 16px;
+    @include frosted-glass;
 }
 
 .navigation_panel, ._comp_status__mainWrapper {
@@ -36,4 +47,10 @@
 ._comp_button_redesign__accent {
     background: var(--tree-bark) !important;
     background-position: center center !important;
+}
+
+.admin-wrapper,
+.layout-single-column,
+.layout-multiple-columns {
+    @include background-desktop;
 }
