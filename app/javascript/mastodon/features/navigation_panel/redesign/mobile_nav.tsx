@@ -6,11 +6,8 @@ import classNames from 'classnames';
 import { useLocation } from 'react-router';
 
 import {
-  BellIcon,
   ChatCircleDotsIcon,
-  HouseIcon,
   InfoIcon,
-  MagnifyingGlassIcon,
 } from '@phosphor-icons/react';
 import { animated, useSpring } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
@@ -29,6 +26,11 @@ import {
   trendsEnabled,
 } from '@/mastodon/initial_state';
 import { useAppDispatch, useAppSelector } from '@/mastodon/store';
+import {
+  HomeIcon,
+  ExploreIcon,
+  NotificationIcon,
+ } from '@/mastodon/utils/icons';
 
 import {
   RedesignNavigationPanel,
@@ -64,7 +66,7 @@ export const RedesignMobileNavigation: React.FC = () => {
       {signedIn ? (
         <nav className={classes.root}>
           <ul className={classNames(classes.floatingCard, classes.list)}>
-            <MobileNavLink to='/home' iconComponent={HouseIcon}>
+              <MobileNavLink to='/home' iconComponent={HomeIcon()}>
               <FormattedMessage id='tabs_bar.home' defaultMessage='Home' />
             </MobileNavLink>
             <MobileNavLink
@@ -72,7 +74,7 @@ export const RedesignMobileNavigation: React.FC = () => {
                 pathname: trendsEnabled ? '/explore' : '/search',
                 state: { focusTarget: FOCUS_TARGET.SEARCH },
               }}
-              iconComponent={MagnifyingGlassIcon}
+              iconComponent={ExploreIcon()}
               onClick={handleSearchLinkClick}
             >
               <FormattedMessage id='tabs_bar.search' defaultMessage='Search' />
@@ -89,7 +91,7 @@ export const RedesignMobileNavigation: React.FC = () => {
             </MobileNavLink>
             <MobileNavLink
               to='/notifications'
-              iconComponent={BellIcon}
+              iconComponent={NotificationIcon()}
               withDot={notificationsCount > 0}
             >
               <FormattedMessage

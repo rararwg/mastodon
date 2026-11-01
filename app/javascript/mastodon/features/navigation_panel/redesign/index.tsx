@@ -6,10 +6,7 @@ import type { Map as ImmutableMap } from 'immutable';
 
 import {
   PenNibIcon,
-  HouseIcon,
-  MagnifyingGlassIcon,
   RssSimpleIcon,
-  BellIcon,
   ChatCircleDotsIcon,
   BookmarkSimpleIcon,
   PlusIcon,
@@ -19,6 +16,11 @@ import {
 } from '@phosphor-icons/react';
 
 import FediIcon from '@/images/icons/icon_fediverse.svg?react';
+import {
+  HomeIcon,
+  ExploreIcon,
+  NotificationIcon,
+ } from '@/mastodon/utils/icons';
 import { fetchFollowRequests } from '@/mastodon/actions/accounts';
 import { fetchLists } from '@/mastodon/actions/lists';
 import { closeNavigation } from '@/mastodon/actions/navigation';
@@ -55,6 +57,7 @@ import { ListSection } from './list_section';
 import { DisabledAccountBanner, LoggedOutInfo } from './logged_out_info';
 import { NavigationLink } from './navigation_link';
 import classes from './styles.module.scss';
+import { getTheme } from '@/mastodon/utils/theme';
 
 const messages = defineMessages({
   main: {
@@ -187,7 +190,7 @@ export const RedesignNavigationPanel: React.FC<{
         <>
           {transientSingleColumn && <TransientSingleColumnCallout />}
           <ul className={classes.list}>
-            <NavigationLink to='/home' iconComponent={HouseIcon}>
+            <NavigationLink to='/home' iconComponent={HomeIcon()}>
               <FormattedMessage id='tabs_bar.home' defaultMessage='Home' />
             </NavigationLink>
             <ExploreLink />
@@ -298,7 +301,7 @@ export const RedesignNavigationPanel: React.FC<{
                   <NavigationLink
                     stacked
                     to='/notifications'
-                    iconComponent={BellIcon}
+                    iconComponent={NotificationIcon()}
                     badgeCount={notificationsCount}
                   >
                     <FormattedMessage
@@ -365,7 +368,7 @@ const ExploreLink: React.FC = () => {
         pathname: trendsEnabled ? '/explore' : '/search',
         state: { focusTarget: FOCUS_TARGET.SEARCH },
       }}
-      iconComponent={MagnifyingGlassIcon}
+      iconComponent={ExploreIcon()}
       onClick={handleSearchLinkClick}
     >
       {trendsEnabled ? (
