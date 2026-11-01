@@ -22,47 +22,23 @@ html {
 html:not([data-color-scheme]) {
   color-scheme: dark;
 
-  @include dark.base-flora;
+  @include palette.base-flora;
   @include dark.tokens;
   @include utils.invert-on-dark;
 
   &[data-theme-color='to-the-moon'] {
-    @include dark.base-to-the-moon;
-  }
-
-  &[data-theme-color='dogwalk'] {
-     @include dark.base-dogwalk;
-  }
-
-  &[data-theme-color='orange'] {
-    @include dark.base-orange;
-  }
-
-  &[data-theme-color='cyan'] {
-    @include dark.base-cyan;
+      @include palette.base-to-the-moon;
   }
 }
 
 [data-color-scheme='light'] {
   color-scheme: light;
 
-  @include light.base-flora;
+  @include palette.base-flora;
   @include light.tokens;
   @include utils.invert-on-light;
 
   &[data-theme-color='to-the-moon'] {
-    @include light.base-to-the-moon;
-  }
-
-  &[data-theme-color='dogwalk'] {
-    @include light.base-dogwalk;
-  }
-
-  &[data-theme-color='orange'] {
-    @include light.base-orange;
-  }
-
-  &[data-theme-color='cyan'] {
-    @include light.base-cyan;
+    @include palette.base-to-the-moon;
   }
 }
