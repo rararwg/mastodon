@@ -1,0 +1,43 @@
+@mixin background-desktop {
+    background: var(--background-image);
+    background-position: center center;
+    background-size: auto 100%;
+    background-attachment: fixed;
+}
+
+@mixin frosted-glass{
+    background: var(--base-color-bg-desktop);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+}
+
+._navigation_panel_redesign__root,
+._comp_columns_area__discoveryWrapper,
+._comp_column__root,
+.sidebar,
+.content
+{
+    @include frosted-glass;
+}
+
+.navigation_panel, ._comp_status__mainWrapper {
+    border-radius: 8px;
+}
+
+._comp_status__contentWrapper {
+    background: var(--base-color-bg-desktop);
+    padding: 2px;
+    border-radius: 2px;
+}
+
+._comp_columns_area__main,
+._comp_column_header__root {
+    background: none !important;
+}
+
+.admin-wrapper,
+.layout-single-column,
+.layout-multiple-columns {
+    @include background-desktop;
+}
